@@ -1,8 +1,6 @@
 package com.learning.model.entities;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -12,6 +10,13 @@ public class Category extends BaseEntity {
     private String categoryName;
 
     private String categoryDescription;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id")
+    private String parentCategory;
+
+    @OneToMany(mappedBy = "parentCategory", cascade = CascadeType.ALL)
+    private List<Category> childCategory;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Product> products;
@@ -38,5 +43,21 @@ public class Category extends BaseEntity {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public List<Category> getChildCategory() {
+        return childCategory;
+    }
+
+    public void setChildCategory(List<Category> childCategory) {
+        this.childCategory = childCategory;
+    }
+
+    public String getParentCategory() {
+        return parentCategory;
+    }
+
+    public void setParentCategory(String parentCategory) {
+        this.parentCategory = parentCategory;
     }
 }

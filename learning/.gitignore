@@ -1,33 +1,44 @@
-HELP.md
-target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# Maven / Gradle build directories
+/target/
+/build/
+/out/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
+# IntelliJ IDEA
+.idea/
+/*.iml
 *.ipr
+*.iws
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+# Eclipse
+.project
+.classpath
+.settings/
 
-### VS Code ###
+# VS Code
 .vscode/
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Spring Boot specific
+application-*.yml
+application-*.properties
+!application.properties   # Keep main application.properties
+
+# Generated files
+*.class
+*.jar
+*.war
+*.ear
+
+# Node modules (if frontend comes later in same repo)
+node_modules/
+dist/
+
+# Test reports
+/test-output/
+/surefire-reports/
