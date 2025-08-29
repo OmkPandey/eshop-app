@@ -11,6 +11,11 @@ public class ProductRequestDTO {
     private Boolean active;
     private String imageURL;
     private Long categoryId;
+    private CategorySummeryDTO categorySummeryDTO;
+
+    public ProductRequestDTO(CategorySummeryDTO categorySummeryDTO) {
+        this.categorySummeryDTO = categorySummeryDTO;
+    }
 
     public ProductRequestDTO() {
     }
@@ -25,6 +30,14 @@ public class ProductRequestDTO {
         this.active = active;
         this.imageURL = imageURL;
         this.categoryId = categoryId;
+    }
+
+    public CategorySummeryDTO getCategorySummeryDTO() {
+        return categorySummeryDTO;
+    }
+
+    public void setCategorySummeryDTO(CategorySummeryDTO categorySummeryDTO) {
+        this.categorySummeryDTO = categorySummeryDTO;
     }
 
     public String getProductName() {
